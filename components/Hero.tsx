@@ -3,6 +3,8 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero: React.FC = () => {
+  const heroImageSrc = `${import.meta.env.BASE_URL}hero-user-image.png`;
+  const fallbackImageSrc = `${import.meta.env.BASE_URL}hero-model.svg`;
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -11,9 +13,14 @@ const Hero: React.FC = () => {
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/hero-model.svg" 
+          src={heroImageSrc}
           alt="Young male model wearing black silk boxer briefs" 
           className="w-full h-full object-cover opacity-65 scale-105"
+          onError={(event) => {
+            const image = event.currentTarget;
+            image.onerror = null;
+            image.src = fallbackImageSrc;
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0F0F0F]/50 to-[#0F0F0F]"></div>
       </div>
