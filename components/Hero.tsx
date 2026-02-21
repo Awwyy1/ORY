@@ -11,9 +11,9 @@ const Hero: React.FC = () => {
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1558239027-3860548170d1?auto=format&fit=crop&q=80&w=2070" 
-          alt="Silk Texture" 
-          className="w-full h-full object-cover opacity-40 mix-blend-luminosity scale-110"
+          src="/hero-model.svg" 
+          alt="Young male model wearing black silk boxer briefs" 
+          className="w-full h-full object-cover opacity-65 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0F0F0F]/50 to-[#0F0F0F]"></div>
       </div>
